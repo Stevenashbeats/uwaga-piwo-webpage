@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(cd:*)",
+      "Bash(for f in menu-piwa-kran.webp menu-piwa-puszki.webp menu-alkohole.webp)",
+      "Bash(do cwebp -q 75 -resize 480 0 \"$f\" -o \"/tmp/$f\")",
+      "Bash(cwebp:*)",
+      "Bash(for f in hero-bar.webp piwa-kraft.webp uwaga-kawa.webp fabryka/hero.webp ken18/hero.webp gdansk/hero.webp)",
+      "Bash(do echo -n \"$f: \")",
+      "Bash(sips:*)",
+      "Bash(done)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}

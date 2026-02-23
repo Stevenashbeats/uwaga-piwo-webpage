@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabryka Norblina – UWAGA PIWO</title>
+  <meta name="description" content="Uwaga Piwo Fabryka Norblina – Żelazna 51/53, Warszawa. Kraftowe piwa, transmisje sportowe, salka VIP na wynajem.">
+
+  <style>
+    @font-face {
+      font-family: 'Evogria';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/Evogria-1.otf') format('opentype');
+    }
+    @font-face {
+      font-family: 'Barlow Condensed';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('fonts/BarlowCondensed-Light.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Barlow Condensed';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/BarlowCondensed-Regular.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Barlow Condensed';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/BarlowCondensed-Bold.ttf') format('truetype');
+    }
+  </style>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow Condensed', sans-serif; font-weight: 400; background-color: #111; color: #fff; line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* HEADER */
+    .site-header {
+      background-color: #1a1a1a;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo img { height: 150px; width: 150px; object-fit: contain; }
+    .main-nav { display: flex; gap: 40px; }
+    .main-nav a {
+      font-family: 'Evogria', sans-serif;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      transition: opacity 0.3s;
+    }
+    .main-nav a:hover, .main-nav a:focus-visible, .main-nav a.active { opacity: 0.7; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 28px; height: 2px; background: #fff; margin: 6px 0; transition: 0.3s; }
+
+    /* HERO */
+    .page-hero {
+      position: relative;
+      height: 50vh;
+      min-height: 360px;
+      overflow: hidden;
+    }
+    .page-hero > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(0.45);
+    }
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+    }
+    .page-hero-logo {
+      height: 30px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+    .page-hero-overlay h1 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(32px, 5vw, 64px);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+    .page-hero-overlay p {
+      font-size: clamp(15px, 1.5vw, 19px);
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1px;
+    }
+
+    /* MAIN CONTENT */
+    .location-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .location-details h2 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(20px, 2vw, 28px);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #333;
+    }
+
+    .detail-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .detail-label {
+      font-family: 'Evogria', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      min-width: 80px;
+      margin-top: 3px;
+    }
+    .detail-value {
+      font-size: 17px;
+      color: #ddd;
+      line-height: 1.6;
+    }
+    .detail-value a {
+      color: #ddd;
+      transition: color 0.3s;
+    }
+    .detail-value a:hover { color: #fff; }
+
+    .location-about h2 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(20px, 2vw, 28px);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #333;
+    }
+    .location-about p {
+      font-size: 17px;
+      color: #ccc;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* OFFER TAGS */
+    .offer-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .tag {
+      border: 1px solid #444;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #aaa;
+      border-radius: 2px;
+    }
+
+    /* RESERVE BUTTON */
+    .btn-reserve {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 36px;
+      background: #fff;
+      color: #111;
+      font-family: 'Evogria', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-reserve:hover {
+      background: #ddd;
+      transform: translateY(-2px);
+    }
+
+    /* PHOTO GALLERY */
+    .gallery-section {
+      background: #1a1a1a;
+      padding: 60px 40px;
+    }
+    .gallery-section h2 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(20px, 2.5vw, 32px);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 0.4s;
+    }
+    .gallery-grid img:hover { transform: scale(1.03); }
+
+    /* MAP */
+    .map-section {
+      padding: 0;
+    }
+    .map-section iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      display: block;
+      filter: grayscale(30%);
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 60px 40px;
+      text-align: center;
+      background: #111;
+    }
+    .cta-section p {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 24px;
+    }
+    .btn-outline {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #fff;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Evogria', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover { background: #ddd; transform: translateY(-2px); }
+
+    /* FOOTER */
+    .site-footer {
+      background: #0a0a0a;
+      padding: 60px 40px 30px;
+      color: #999;
+      font-size: 15px;
+    }
+    .site-footer a { color: #999; transition: color 0.3s; }
+    .site-footer a:hover, .site-footer a:focus-visible { color: #fff; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    .footer-col h4 {
+      font-family: 'Evogria', sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .footer-col p { line-height: 1.8; margin-bottom: 12px; color: #999; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: #999; font-size: 15px; transition: color 0.3s; }
+    .footer-col ul li a:hover, .footer-col ul li a:focus-visible { color: #fff; }
+    .footer-location { margin-bottom: 18px; }
+    .footer-location strong { color: #aaa; font-weight: 700; font-size: 14px; display: block; margin-bottom: 4px; }
+    .footer-location span { color: #999; font-size: 14px; line-height: 1.6; }
+    .footer-socials { display: flex; gap: 16px; margin-top: 16px; }
+    .footer-socials a {
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border: 1px solid #333; border-radius: 8px;
+      color: #999; transition: color 0.3s, border-color 0.3s;
+    }
+    .footer-socials a:hover, .footer-socials a:focus-visible { color: #fff; border-color: #999; }
+    .footer-socials a svg { width: 18px; height: 18px; }
+    .footer-bottom {
+      border-top: 1px solid #1a1a1a;
+      padding-top: 24px;
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Evogria', sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      padding: 20px 40px;
+      transition: color 0.3s;
+    }
+    .back-link:hover, .back-link:focus-visible { color: #fff; }
+    .back-link::before { content: '←'; font-size: 16px; }
+
+    /* MENU SECTION */
+    .menu-section {
+      padding: 80px 40px;
+      background: #0e0e0e;
+    }
+
+    .menu-section h2 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(24px, 3vw, 40px);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .menu-card {
+      text-align: center;
+    }
+
+    .menu-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .menu-card h3 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(14px, 1.5vw, 18px);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .menu-card p {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.7;
+    }
+
+    .menu-card a {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+
+    .menu-card a:hover {
+      color: #ccc;
+    }
+
+    .menu-img {
+      display: block;
+      max-width: 900px;
+      margin: 56px auto 0;
+    }
+
+    .menu-img img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .site-header { padding: 15px 20px; }
+      .logo img { height: 100px; width: 100px; }
+      .nav-toggle { display: block; }
+      .main-nav {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: #1a1a1a; flex-direction: column; padding: 20px; gap: 20px; text-align: center;
+      }
+      .main-nav.open { display: flex; }
+    }
+    @media (max-width: 768px) {
+      .location-page { grid-template-columns: 1fr; gap: 50px; padding: 50px 20px; }
+      .location-about { order: -1; }
+      .location-details { order: 1; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-section, .cta-section { padding: 50px 20px; }
+      .menu-section { padding: 50px 20px; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .site-footer { padding: 40px 20px 20px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;border-top:1px solid #333;padding:20px 40px;display:flex;align-items:center;justify-content:center;gap:24px;transform:translateY(100%);transition:transform 0.4s ease}.cookie-banner.visible{transform:translateY(0)}.cookie-banner p{font-size:14px;color:#ccc;line-height:1.6;max-width:700px}.cookie-banner p a{color:#fff;text-decoration:underline}.cookie-banner-btns{display:flex;gap:10px;flex-shrink:0}.cookie-banner-btns button{padding:10px 24px;border-radius:6px;font-family:'Evogria',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.3s,transform 0.2s;border:none}.cookie-btn-accept{background:#fff;color:#111}.cookie-btn-accept:hover{background:#ddd;transform:translateY(-1px)}.cookie-btn-reject{background:none;border:1px solid #666 !important;color:#ddd}.cookie-btn-reject:hover{border-color:#999 !important;color:#fff}@media (max-width:768px){.cookie-banner{flex-direction:column;gap:16px;padding:20px}.cookie-banner p{text-align:center;font-size:13px}}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="uwaga.html" class="logo">
+      <img src="images/uwaga-piwo-logo.svg" alt="UWAGA PIWO" loading="eager">
+    </a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav">
+      <a href="uwaga.html">O NAS</a>
+      <a href="fabryka-norblina.html" class="active">FABRYKA NORBLINA</a>
+      <a href="ken-18.html">KEN 18</a>
+      <a href="piwna.html">GDAŃSK</a>
+      <a href="uwaga-kawa.html">UWAGA KAWA</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <img src="images/fabryka/hero.webp" alt="Fabryka Norblina" width="600" height="900" loading="eager">
+    <div class="page-hero-overlay">
+      <img src="images/uwaga-piwo-logo.svg" alt="UWAGA PIWO" class="page-hero-logo">
+      <h1>Fabryka Norblina</h1>
+      <p>Żelazna 51/53, Warszawa</p>
+    </div>
+  </section>
+
+  <a href="uwaga.html" class="back-link">Powrót do strony głównej</a>
+
+  <!-- MAIN CONTENT -->
+  <div class="location-page">
+
+    <div class="location-details">
+      <h2>Informacje</h2>
+
+      <div class="detail-row">
+        <span class="detail-label">Adres</span>
+        <span class="detail-value">
+          <a href="https://maps.google.com/?q=Żelazna+51/53+Warszawa" target="_blank" rel="noopener">
+            Żelazna 51/53<br>00-841 Warszawa
+          </a>
+        </span>
+      </div>
+
+      <div class="detail-row">
+        <span class="detail-label">Godziny</span>
+        <span class="detail-value">
+          Pn – Pt: od 15:00<br>
+          Sb – Nd: od 13:00
+        </span>
+      </div>
+
+      <div class="detail-row">
+        <span class="detail-label">Telefon</span>
+        <span class="detail-value">
+          <a href="tel:512131477">512 13 14 77</a><br>
+          <a href="tel:694007730">694 007 730</a>
+        </span>
+      </div>
+
+      <div class="detail-row">
+        <span class="detail-label">Email</span>
+        <span class="detail-value">
+          <a href="mailto:norblin@uwagapiwo.pl">norblin@uwagapiwo.pl</a>
+        </span>
+      </div>
+
+      <div class="offer-tags">
+        <span class="tag">Piwa kraftowe</span>
+        <span class="tag">Transmisje sportowe</span>
+        <span class="tag">Salka VIP</span>
+        <span class="tag">Sala konferencyjna</span>
+        <span class="tag">Pizza</span>
+        <span class="tag">Fliper & foosball</span>
+        <span class="tag">Muzyka na żywo</span>
+        <span class="tag">Ogródek</span>
+      </div>
+
+      <a href="https://www.mojstolik.pl/restauracja/uwagapiwo-norblin" target="_blank" rel="noopener" class="btn-reserve">Rezerwuj stolik</a>
+    </div>
+
+    <div class="location-about">
+      <h2>O lokalu</h2>
+      <p>Nasz pierwszy i największy lokal w tętniącej życiem Fabryce Norblina na warszawskiej Woli. Oferujemy duży wybór piw – w tym nasze autorskie piwa „Uwaga" – alkohol, wino i napoje bezalkoholowe.</p>
+      <p>Codziennie transmitujemy mecze i inne wydarzenia sportowe na dużych ekranach. Do dyspozycji gości flipery, piłkarzyki i inne gry zręcznościowe. Regularnie gościmy koncerty rockowe.</p>
+      <p>Posiadamy dwie przestrzenie do wynajęcia: <strong>salę konferencyjną</strong> na do 100 osób (projektor, mikrofon, wygłuszenie) oraz kameralną <strong>salkę VIP</strong> na do 30 osób z TV i nagłośnieniem.</p>
+      <p>Rezerwacje bezpłatne dla grup do 30 osób przez portal <a href="https://www.mojstolik.pl/restauracja/uwagapiwo-norblin" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">mojstolik.pl</a> lub telefonicznie. Większe grupy prosimy o kontakt mailowy.</p>
+    </div>
+
+  </div>
+
+  <!-- MENU -->
+  <section class="menu-section">
+    <h2>Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="images/fabryka/menu-piwa-kran.webp" alt="Piwa z kranu" width="480" height="321" loading="lazy">
+        <h3>Piwa z kranu</h3>
+        <p>Zmieniają się na bieżąco. Wszystkie pochodzą z polskich browarów, w tym nasze własne piwa „Uwaga".</p>
+        <p>Aktualne piwa na kranie znajdziecie na: <a href="https://uwaga-piwo.ontap.pl" target="_blank" rel="noopener">uwaga-piwo.ontap.pl</a></p>
+      </div>
+      <div class="menu-card">
+        <img src="images/fabryka/menu-piwa-puszki.webp" alt="Piwa w puszkach i butelkach" width="480" height="290" loading="lazy">
+        <h3>Piwa w puszkach i w butelkach</h3>
+        <p>Piwa w butelkach także zmieniają się na bieżąco i pochodzą z polskich browarów. Do wyboru jasne, ciemne, wytrawne, soury i smakowe, bezalkoholowe, a nawet bezglutenowe.</p>
+      </div>
+      <div class="menu-card">
+        <img src="images/fabryka/hero.webp" alt="Przekąski i jedzenie" width="600" height="900" loading="lazy">
+        <h3>Przekąski i jedzenie</h3>
+        <p>Z przekąsek podajemy: chipsy, precelki, nachosy z salsą i orzeszki.</p>
+        <p>Do jedzenia oferujemy autorskie finger foody na ciepło oraz pizzę.</p>
+      </div>
+      <div class="menu-card">
+        <img src="images/fabryka/menu-alkohole.webp" alt="Inne alkohole i napoje" width="480" height="720" loading="lazy">
+        <h3>Inne alkohole i napoje</h3>
+        <p>Z mocniejszych alkoholi mamy: wódkę, rum, whisky, gin, Jägermeistera, Aperol Spritz. Wina, w tym musujące i cydr.</p>
+        <p>Inne napoje w naszej ofercie to: Soki Cappy, Sprite, Tonic Kinley, Coca-Cola, lemoniady chmielowe, kawa i herbata.</p>
+      </div>
+    </div>
+    <div id="menuWrapper" class="menu-img" style="position:relative;width:100%;overflow:hidden;border-radius:8px;">
+      <iframe id="menuIframe" title="Menu piw – Fabryka Norblina" loading="lazy" style="border:none;transform-origin:top left;position:absolute;top:0;left:0;"></iframe>
+    </div>
+    <script>
+      (function(){
+        var desktopSrc='https://ibeer.beerprojects.com/bms-ts/public/norblin/tv-3';
+        var mobileSrc='https://ibeer.beerprojects.com/bms-ts/public/norblin/telewizor-1-1';
+        var currentMode='';
+        function scaleMenu(){
+          var w=document.getElementById('menuWrapper');
+          var f=document.getElementById('menuIframe');
+          if(!w||!f)return;
+          var mobile=w.clientWidth<=768;
+          var mode=mobile?'mobile':'desktop';
+          if(mode!==currentMode){
+            currentMode=mode;
+            if(mobile){
+              f.style.width='1080px';f.style.height='1920px';
+              w.style.aspectRatio='9/16';
+              f.src=mobileSrc;
+            }else{
+              f.style.width='1920px';f.style.height='1080px';
+              w.style.aspectRatio='16/9';
+              f.src=desktopSrc;
+            }
+          }
+          var nativeW=mobile?1080:1920;
+          f.style.transform='scale('+w.clientWidth/nativeW+')';
+        }
+        scaleMenu();window.addEventListener('resize',scaleMenu);
+      })();
+    </script>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section">
+    <h2>Galeria</h2>
+    <div class="gallery-grid">
+      <img src="images/fabryka/hero.webp" alt="Fabryka Norblina – wnętrze" width="600" height="900" loading="lazy">
+      <img src="images/fabryka/menu-piwa-puszki.webp" alt="Fabryka Norblina – bar" width="480" height="290" loading="lazy">
+      <img src="images/fabryka/menu-piwa-kran.webp" alt="Fabryka Norblina – piwa" width="480" height="321" loading="lazy">
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.697!2d20.9883!3d52.2315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd6b9ae29501%3A0x0!2sŻelazna+51%2F53%2C+00-841+Warszawa!5e0!3m2!1spl!2spl!4v1"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Mapa – Fabryka Norblina">
+    </iframe>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <p>Zarezerwuj stolik lub zapytaj o wynajem sali</p>
+    <a href="mailto:norblin@uwagapiwo.pl" class="btn-outline">Napisz do nas</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Uwaga Piwo</h4>
+        <p>Szeroki wybór polskich piw kraftowych, w tym nasze autorskie piwa „Uwaga" dostępne tylko u nas. Transmisje sportowe, gry, dobra muzyka i jedzenie.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/uwaborek" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/uwagapiwo/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Lokalizacje</h4>
+        <ul>
+          <li><a href="fabryka-norblina.html">Fabryka Norblina</a></li>
+          <li><a href="ken-18.html">KEN 18</a></li>
+          <li><a href="piwna.html">Piwna Gdańsk</a></li>
+          <li><a href="uwaga-kawa.html">Uwaga Kawa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Warszawa</h4>
+        <div class="footer-location">
+          <strong>Fabryka Norblina</strong>
+          <span>Żelazna 51/53<br>Pn–Pt od 15:00 · Sb–Nd od 13:00</span>
+        </div>
+        <div class="footer-location">
+          <strong>KEN 18</strong>
+          <span>Al. KEN 18, Ursynów<br>Codziennie od 16:00</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Gdańsk</h4>
+        <div class="footer-location">
+          <strong>Uwaga Piwo</strong>
+          <span>Piwna 24<br>Pn–Pt od 15:00 · Sb–Nd od 13:00</span>
+        </div>
+        <div class="footer-location">
+          <strong>Uwaga Kawa</strong>
+          <span>Piwna 24<br>Codziennie od 10:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024–2026 UWAGA PIWO. Wszelkie prawa zastrzeżone. · <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>Używamy plików cookie, aby zapewnić najlepszą jakość korzystania z naszej strony. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+    <div class="cookie-banner-btns">
+      <button class="cookie-btn-accept" onclick="acceptCookies()">Akceptuję</button>
+      <button class="cookie-btn-reject" onclick="rejectCookies()">Odrzuć</button>
+    </div>
+  </div>
+  <script>
+    (function(){if(!localStorage.getItem('cookieConsent')){setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible');},800);}})();
+    function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').classList.remove('visible');}
+    function rejectCookies(){localStorage.setItem('cookieConsent','rejected');document.getElementById('cookieBanner').classList.remove('visible');}
+  </script>
+
+</body>
+</html>

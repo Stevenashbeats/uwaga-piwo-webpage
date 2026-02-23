@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UWAGA PIWO – Bar z polskim piwem kraftowym</title>
+  <meta name="description" content="Szeroki wybór polskich piw kraftowych, w tym nasze własne piwa Uwaga, dostępne tylko u nas. Transmisje sportowe, gry, dobra muzyka, jedzenie.">
+
+  <link rel="preload" as="image" href="images/hero-bar.webp" type="image/webp">
+  <link rel="preload" as="font" href="fonts/BarlowCondensed-Regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/Evogria-1.woff2" type="font/woff2" crossorigin>
+
+  <!-- Fonts -->
+  <style>@font-face{font-family:'Evogria';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Evogria-1.woff2') format('woff2')}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/BarlowCondensed-Light.woff2') format('woff2')}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/BarlowCondensed-Regular.woff2') format('woff2')}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/BarlowCondensed-Bold.woff2') format('woff2')}</style>
+
+  <style>*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Barlow Condensed',sans-serif;font-weight:400;background-color:#111;color:#fff;line-height:1.6;overflow-x:hidden}a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:block}.site-header{background-color:#1a1a1a;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}.logo img{height:150px;width:150px;object-fit:contain}.main-nav{display:flex;gap:40px}.main-nav a{font-family:'Evogria',sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:#fff;transition:opacity 0.3s}.main-nav a:hover,.main-nav a:focus-visible{opacity:0.7}.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}.nav-toggle span{display:block;width:28px;height:2px;background:#fff;margin:6px 0;transition:0.3s}.hero{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}.hero-text{background-color:#fff;color:#111;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 40px}.hero-text h1{font-family:'Evogria',sans-serif;font-size:clamp(22px,2.5vw,32px);text-transform:uppercase;margin-bottom:20px;letter-spacing:1px}.hero-text p{font-size:clamp(16px,1.3vw,20px);max-width:500px;line-height:1.7;color:#333}.hero-media{position:relative;overflow:hidden;cursor:pointer}.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover}.hero-media video{display:none}.hero-media.playing img{display:none}.hero-media.playing video{display:block}.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80px;height:80px;background:rgba(255,255,255,0.85);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform 0.3s,background 0.3s;pointer-events:none}.play-btn::after{content:'';display:block;width:0;height:0;border-style:solid;border-width:14px 0 14px 24px;border-color:transparent transparent transparent #111;margin-left:4px}.hero-media:hover .play-btn{transform:translate(-50%,-50%) scale(1.1);background:rgba(255,255,255,1)}.hero-media.playing .play-btn{display:none}.section-title{font-family:'Evogria',sans-serif;font-size:clamp(24px,3vw,40px);text-transform:uppercase;text-align:center;letter-spacing:2px}.locations{background-color:#1a1a1a;padding:80px 40px}.locations .section-title{margin-bottom:60px}.locations-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1400px;margin:0 auto}.location-card{text-align:center}.location-card-img{border-radius:12px;overflow:hidden;aspect-ratio:1/1;margin-bottom:24px}.location-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}.location-card:hover .location-card-img img{transform:scale(1.05)}.location-card h3{font-family:'Evogria',sans-serif;font-size:clamp(22px,2.4vw,32px);text-transform:uppercase;margin-bottom:16px;letter-spacing:2px}.location-card p{font-size:16px;color:#ccc;line-height:1.7;margin-bottom:16px;padding:0 10px}.location-meta{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}.location-meta-item{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:15px;color:#999;transition:color 0.3s}.location-meta-item svg{width:16px;height:16px;flex-shrink:0;opacity:0.5}a.location-meta-item:hover{color:#fff}a.location-meta-item:hover svg{opacity:1}.location-meta-divider{width:40px;height:1px;background:#333;margin:4px auto}.location-meta-hours{font-size:14px;color:#999;letter-spacing:0.5px}.btn-outline{display:inline-block;padding:14px 36px;background:#fff;color:#111;border:none;border-radius:8px;font-family:'Evogria',sans-serif;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background 0.3s,transform 0.2s}.btn-outline:hover{background:#ddd;transform:translateY(-2px)}.beer-section{display:grid;grid-template-columns:1fr 1fr;min-height:50vh}.beer-text{background-color:#f9f9f9;color:#111;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 40px}.beer-text h2{font-family:'Evogria',sans-serif;font-size:clamp(20px,2.2vw,30px);text-transform:uppercase;margin-bottom:20px;letter-spacing:1px}.beer-text p{font-size:clamp(15px,1.2vw,18px);max-width:500px;line-height:1.7;color:#444}.beer-image{overflow:hidden}.beer-image img{width:100%;height:100%;object-fit:cover}.news-section{padding:80px 0 0;background-color:#111}.news-section .section-title{margin-bottom:16px}.news-subtitle{text-align:center;color:#888;font-size:17px;margin-bottom:24px;letter-spacing:0.5px}.news-status{display:inline-block;padding:2px 8px;border-radius:3px;font-family:'Evogria',sans-serif;font-size:9px;letter-spacing:1.2px;text-transform:uppercase}.news-status-new{background:rgba(76,175,80,0.15);color:#6abf6e}.news-status-upcoming{background:rgba(100,181,246,0.15);color:#64b5f6}.news-status-past{background:rgba(255,255,255,0.06);color:#888}.news-card-badge{position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:5px 14px;border-radius:20px;font-family:'Evogria',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#fff}.news-roll-nav{display:flex;align-items:center;justify-content:center;gap:12px;padding:0 40px;margin-top:-20px;padding-bottom:60px}.news-roll-arrows{display:flex;gap:4px}.news-roll-arrows button{width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,0.06);color:#666;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color 0.3s,background 0.3s}.news-roll-arrows button:hover{color:#fff;background:rgba(255,255,255,0.12)}.news-roll{display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth;padding:0 40px 30px;-ms-overflow-style:none;scrollbar-width:none}.news-roll::-webkit-scrollbar{display:none}.news-roll-card{flex:0 0 240px;background:#1a1a1a;border-radius:12px;overflow:hidden;transition:transform 0.4s,box-shadow 0.4s;display:flex;flex-direction:column;cursor:pointer}.news-roll-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.4)}.news-roll-card-img{height:140px;overflow:hidden;position:relative}.news-roll-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}.news-roll-card:hover .news-roll-card-img img{transform:scale(1.05)}.news-roll-card-body{padding:16px;display:flex;flex-direction:column;flex:1}.news-roll-card-date{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700}.news-roll-card h3{font-family:'Evogria',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#fff;margin-bottom:8px;line-height:1.35}.news-roll-card p{font-size:13px;color:#999;line-height:1.5;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.news-roll-card-link{display:inline-flex;align-items:center;gap:6px;font-family:'Evogria',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888;transition:color 0.3s;margin-top:auto}.news-roll-card-link::after{content:'\2192';font-size:14px;transition:transform 0.3s}.news-roll-card:hover .news-roll-card-link{color:#fff}.news-roll-card:hover .news-roll-card-link::after{transform:translateX(4px)}.news-roll-card-past{opacity:0.55;transition:opacity 0.4s,transform 0.4s,box-shadow 0.4s}.news-roll-card-past:hover{opacity:1}.schedule-section{padding:60px 40px 80px;background-color:#111;opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease}.schedule-section.visible{opacity:1;transform:translateY(0)}.schedule-section .section-title{margin-bottom:40px}.schedule-wrap{position:relative;max-width:700px;margin:0 auto;border-radius:16px;overflow:hidden}.schedule-bg{position:absolute;inset:0;background:url('images/hero-bar.webp') center/cover no-repeat;z-index:0}.schedule-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.78)}.schedule-inner{position:relative;z-index:1;padding:40px 36px}.schedule-nav{display:flex;align-items:center;justify-content:center;gap:30px;margin-bottom:32px}.schedule-nav button{background:none;border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:rgba(255,255,255,0.65);font-size:18px;cursor:pointer;padding:8px 14px;transition:color 0.3s,border-color 0.3s}.schedule-nav button:hover{color:#fff;border-color:rgba(255,255,255,0.65)}.schedule-nav .schedule-week{font-family:'Evogria',sans-serif;font-size:clamp(14px,1.5vw,18px);text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.7)}.schedule-list{display:flex;flex-direction:column;gap:10px}.schedule-item{display:flex;align-items:center;gap:20px;padding:16px 20px;background:rgba(255,255,255,0.06);border-radius:10px;border:1px solid rgba(255,255,255,0.08);transition:background 0.3s}.schedule-item:hover{background:rgba(255,255,255,0.1)}.schedule-item-date{display:flex;flex-direction:column;align-items:center;min-width:48px}.schedule-item-day{font-family:'Evogria',sans-serif;font-size:28px;color:#fff;line-height:1}.schedule-item-month{font-family:'Barlow Condensed',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.5);margin-top:2px}.schedule-item-info{flex:1;display:flex;flex-direction:column;gap:4px}.schedule-item-label{font-family:'Evogria',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:1px;color:#fff}.schedule-item-time{font-family:'Barlow Condensed',sans-serif;font-size:15px;color:rgba(255,255,255,0.55);letter-spacing:0.5px}.schedule-item-badge{width:64px;height:64px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}.schedule-item-badge img{width:50px;height:50px;object-fit:contain}@media (max-width:768px){.schedule-section{padding:40px 16px 60px}.schedule-inner{padding:28px 16px}.schedule-item{gap:14px;padding:14px 16px}.schedule-item-day{font-size:24px}.schedule-item-label{font-size:12px}.schedule-item-time{font-size:13px}.schedule-item-badge{width:38px;height:38px}.schedule-item-badge img{width:26px;height:26px}}.news-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.4s,visibility 0.4s}.news-overlay.active{opacity:1;visibility:visible}.news-overlay-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.news-overlay-content{position:relative;z-index:1;width:92%;max-width:800px;max-height:90vh;background:#1a1a1a;border-radius:20px;overflow:hidden;transform:translateY(30px) scale(0.96);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column}.news-overlay.active .news-overlay-content{transform:translateY(0) scale(1)}.news-overlay-close{position:absolute;top:16px;right:16px;z-index:2;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.3s,transform 0.3s}.news-overlay-close:hover{background:rgba(255,255,255,0.15);transform:rotate(90deg)}.news-overlay-img{width:100%;height:300px;overflow:hidden;position:relative;flex-shrink:0}.news-overlay-img img{width:100%;height:100%;object-fit:cover}.news-overlay-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(transparent,#1a1a1a)}.news-overlay-badge{position:absolute;top:20px;left:20px;background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:6px 16px;border-radius:20px;font-family:'Evogria',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#fff}.news-overlay-body{padding:32px 40px 40px;overflow-y:auto}.news-overlay-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}.news-overlay-body h2{font-family:'Evogria',sans-serif;font-size:clamp(20px,2.5vw,28px);text-transform:uppercase;letter-spacing:1.5px;color:#fff;line-height:1.35;margin-bottom:24px}.news-overlay-body .news-overlay-text{font-size:16px;color:#aaa;line-height:1.85}.news-overlay-body .news-overlay-text p{margin-bottom:16px}.news-overlay-date{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#999}@media (max-width:768px){.news-overlay-content{width:100%;max-height:100vh;border-radius:0}.news-overlay-img{height:220px}.news-overlay-body{padding:24px 20px 32px}.news-overlay-body h2{font-size:18px}}.section-divider{width:90%;max-width:1200px;height:4px;background:#333;border-radius:10px;margin:0 auto}.site-footer{background:#0a0a0a;padding:60px 40px 30px;color:#999;font-size:15px}.site-footer a{color:#999;transition:color 0.3s}.site-footer a:hover,.site-footer a:focus-visible{color:#fff}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}.footer-col h4{font-family:'Evogria',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:#fff;margin-bottom:20px}.footer-col p{line-height:1.8;margin-bottom:12px;color:#999}.footer-col ul{list-style:none}.footer-col ul li{margin-bottom:10px}.footer-col ul li a{color:#999;font-size:15px;transition:color 0.3s}.footer-col ul li a:hover,.footer-col ul li a:focus-visible{color:#fff}.footer-location{margin-bottom:18px}.footer-location strong{color:#aaa;font-weight:700;font-size:14px;display:block;margin-bottom:4px}.footer-location span{color:#999;font-size:14px;line-height:1.6}.footer-socials{display:flex;gap:16px;margin-top:16px}.footer-socials a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #333;border-radius:8px;color:#999;transition:color 0.3s,border-color 0.3s}.footer-socials a:hover,.footer-socials a:focus-visible{color:#fff;border-color:#999}.footer-socials a svg{width:18px;height:18px}.footer-bottom{border-top:1px solid #1a1a1a;padding-top:24px;text-align:center;color:#999;font-size:13px;max-width:1200px;margin:0 auto}@media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:30px}.site-footer{padding:40px 20px 20px}}@media (max-width:480px){.footer-grid{grid-template-columns:1fr;gap:30px}}.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;border-top:1px solid #333;padding:20px 40px;display:flex;align-items:center;justify-content:center;gap:24px;transform:translateY(100%);transition:transform 0.4s ease}.cookie-banner.visible{transform:translateY(0)}.cookie-banner p{font-size:14px;color:#ccc;line-height:1.6;max-width:700px}.cookie-banner p a{color:#fff;text-decoration:underline}.cookie-banner-btns{display:flex;gap:10px;flex-shrink:0}.cookie-banner-btns button{padding:10px 24px;border-radius:6px;font-family:'Evogria',sans-serif;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.3s,transform 0.2s;border:none}.cookie-btn-accept{background:#fff;color:#111}.cookie-btn-accept:hover{background:#ddd;transform:translateY(-1px)}.cookie-btn-reject{background:none;border:1px solid #666 !important;color:#ddd}.cookie-btn-reject:hover{border-color:#999 !important;color:#fff}@media (max-width:768px){.cookie-banner{flex-direction:column;gap:16px;padding:20px}.cookie-banner p{text-align:center;font-size:13px}}@media (max-width:1200px){.locations-grid{grid-template-columns:repeat(2,1fr)}.news-roll-card{flex:0 0 220px}}@media (max-width:1024px){.site-header{padding:15px 20px}.nav-toggle{display:block}.main-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a1a;flex-direction:column;padding:20px;gap:20px;text-align:center}.main-nav.open{display:flex}.logo img{height:100px;width:100px}.hero{grid-template-columns:1fr}.hero-text{padding:40px 20px;order:1}.hero-media{min-height:300px;order:0}.locations{padding:60px 20px}.locations-grid{grid-template-columns:1fr 1fr;gap:20px}.location-card-img{aspect-ratio:4/3;border-radius:8px;margin-bottom:16px}.location-card h3{font-size:18px;margin-bottom:8px}.location-card p{font-size:14px;margin-bottom:10px;line-height:1.5}.location-meta{gap:6px;margin-bottom:16px}.location-meta-item{font-size:12px}.location-meta-hours{font-size:11px}.btn-outline{font-size:12px;padding:12px 24px}.beer-section{grid-template-columns:1fr}.beer-text{padding:40px 20px}.beer-image{min-height:300px}.news-section{padding:60px 0 0}.news-section .section-title,.news-subtitle{padding:0 20px}.news-roll-nav{padding:0 20px;padding-bottom:50px}.news-roll{padding:0 20px 20px;gap:14px}.news-roll-card{flex:0 0 200px}.news-roll-card-img{height:120px}}</style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <a href="uwaga.html" class="logo">
+      <img src="images/uwaga-piwo-logo.svg" alt="UWAGA PIWO" loading="eager">
+    </a>
+
+    <button class="nav-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav">
+      <a href="uwaga.html">O NAS</a>
+      <a href="fabryka-norblina.html">FABRYKA NORBLINA</a>
+      <a href="ken-18.html">KEN 18</a>
+      <a href="piwna.html">GDAŃSK</a>
+      <a href="uwaga-kawa.html">UWAGA KAWA</a>
+    </nav>
+  </header>
+
+  <main>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Bar z polskim piwem kraftowym</h1>
+      <p>Szeroki wybór polskich piw kraftowych, w tym nasze własne piwa „Uwaga", dostępne tylko u nas. Transmisje sportowe, gry, dobra muzyka, jedzenie i dużo miejsca w przytulnym wnętrzu. Zapraszamy!</p>
+    </div>
+    <div class="hero-media playing">
+      <img src="images/hero-bar.webp" alt="Uwaga Piwo – bar kraftowy" width="960" height="580" loading="eager" fetchpriority="high">
+      <video loop muted playsinline preload="none" id="heroVideo">
+        <source data-src="images/nasze-bary.mp4" type="video/mp4">
+        <track kind="captions" default>
+      </video>
+    </div>
+  </section>
+
+  <!-- ===== NASZE LOKALIZACJE ===== -->
+  <section class="locations">
+    <h2 class="section-title">Nasze Lokalizacje</h2>
+
+    <div class="locations-grid">
+      <div class="location-card">
+        <div class="location-card-img">
+          <img src="images/fabryka/hero.webp" alt="Fabryka Norblina" width="600" height="600" loading="lazy" decoding="async">
+        </div>
+        <h3>Fabryka Norblina</h3>
+        <p>Nasz pierwszy i największy lokal w tętniącej życiem Fabryce Norblina na warszawskiej Woli.</p>
+        <div class="location-meta">
+          <a class="location-meta-item" href="https://maps.google.com/?q=Żelazna+51/53+Warszawa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Żelazna 51/53, Warszawa
+          </a>
+          <span class="location-meta-item location-meta-hours">Pn–Pt od 15:00 · Sb–Nd od 13:00</span>
+          <div class="location-meta-divider"></div>
+          <a class="location-meta-item" href="tel:512131477">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            512 13 14 77
+          </a>
+          <a class="location-meta-item" href="mailto:norblin@uwagapiwo.pl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            norblin@uwagapiwo.pl
+          </a>
+        </div>
+        <a href="fabryka-norblina.html" class="btn-outline">Więcej</a>
+      </div>
+
+      <div class="location-card">
+        <div class="location-card-img">
+          <img src="images/ken18/hero.webp" alt="KEN 18" width="600" height="600" loading="lazy" decoding="async">
+        </div>
+        <h3>KEN 18</h3>
+        <p>Przytulny lokal na Ursynowie. Transmisje sportowe, galeria sztuki i świeże piwo z nalewaka.</p>
+        <div class="location-meta">
+          <a class="location-meta-item" href="https://maps.google.com/?q=Al.+Komisji+Edukacji+Narodowej+18+Warszawa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Al. KEN 18, Warszawa
+          </a>
+          <span class="location-meta-item location-meta-hours">Codziennie od 16:00</span>
+          <div class="location-meta-divider"></div>
+          <a class="location-meta-item" href="tel:451572140">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            451 572 140
+          </a>
+          <a class="location-meta-item" href="mailto:ken18@uwagapiwo.pl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            ken18@uwagapiwo.pl
+          </a>
+        </div>
+        <a href="ken-18.html" class="btn-outline">Więcej</a>
+      </div>
+
+      <div class="location-card">
+        <div class="location-card-img">
+          <img src="images/gdansk/hero.webp" alt="Piwna Gdańsk" width="600" height="600" loading="lazy" decoding="async">
+        </div>
+        <h3>Piwna Gdańsk</h3>
+        <p>Zapraszamy do Uwaga Piwo w Gdańsku! Świeże kraftowe piwo w sercu Starego Miasta.</p>
+        <div class="location-meta">
+          <a class="location-meta-item" href="https://maps.google.com/?q=Piwna+24+Gdańsk" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Piwna 24, Gdańsk
+          </a>
+          <span class="location-meta-item location-meta-hours">Pn–Pt od 15:00 · Sb–Nd od 13:00</span>
+          <div class="location-meta-divider"></div>
+          <a class="location-meta-item" href="tel:728839794">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            728 839 794
+          </a>
+          <a class="location-meta-item" href="mailto:piwna@uwagapiwo.pl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            piwna@uwagapiwo.pl
+          </a>
+        </div>
+        <a href="piwna.html" class="btn-outline">Więcej</a>
+      </div>
+
+      <div class="location-card">
+        <div class="location-card-img">
+          <img src="images/uwaga-kawa.webp" alt="Uwaga Kawa" width="600" height="600" loading="lazy" decoding="async">
+        </div>
+        <h3>Uwaga Kawa</h3>
+        <p>Nasza kawiarnia w klimatycznych, ceglanych wnętrzach. Kawa speciality, ciasta i dobra atmosfera.</p>
+        <div class="location-meta">
+          <a class="location-meta-item" href="https://maps.google.com/?q=Piwna+24+Gdańsk" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Piwna 24, Gdańsk
+          </a>
+          <span class="location-meta-item location-meta-hours">Codziennie od 10:00</span>
+          <div class="location-meta-divider"></div>
+          <a class="location-meta-item" href="tel:600201940">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            600 201 940
+          </a>
+          <a class="location-meta-item" href="mailto:kawa@uwagapiwo.pl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            kawa@uwagapiwo.pl
+          </a>
+        </div>
+        <a href="uwaga-kawa.html" class="btn-outline">Więcej</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TE PIWA ZNAJDZIECIE TYLKO U NAS ===== -->
+  <section class="beer-section">
+    <div class="beer-text">
+      <h2>Te piwa znajdziecie tylko u nas!</h2>
+      <p>Nasze autorskie piwa „Uwaga" są zawsze dostępne u nas na kranie. Warzymy je z sercem w naszym browarze w Warszawie. Postawiliśmy na piwne klasyki czyli – Pils, Pszeniczne, IPA i Marcowe, aby każdy znalazł coś dla siebie. Wpadajcie i dawajcie znać jak wam smakują!</p>
+    </div>
+    <div class="beer-image">
+      <img src="images/piwa-kraft.webp" alt="Piwa kraftowe Uwaga" width="800" height="534" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- ===== NEWSY / BLOG ===== -->
+  <section class="news-section">
+    <h2 class="section-title">Newsy</h2>
+    <p class="news-subtitle">Co nowego w świecie Uwaga Piwo</p>
+
+    <div class="news-roll">
+
+      <article class="news-roll-card"
+        data-img="images/fabryka/hero.webp"
+        data-badge="Wydarzenie"
+        data-status="upcoming" data-status-label="Nadchodzące"
+        data-date="8 marca 2026"
+        data-title="Wielki Dzień Piwa Kraftowego – degustacja 30 piw z całej Polski"
+        data-body="<p>Zapraszamy na wyjątkowe wydarzenie w Fabryce Norblina! 30 browarów z całej Polski zaprezentuje swoje najlepsze piwa w jednym miejscu.</p><p>Wstęp wolny, piwa w cenach specjalnych. Na miejscu food trucki, muzyka na żywo i konkursy z nagrodami. Każdy uczestnik otrzyma pamiątkową szklankę.</p><p>Start o godzinie 14:00, kończymy gdy zabraknie piwa. Przyjdźcie ze znajomymi — to będzie niezapomniana sobota!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/fabryka/hero.webp" alt="Wielki Dzień Piwa Kraftowego" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Wydarzenie</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-upcoming">Nadchodzące</span>
+            8 marca 2026
+          </span>
+          <h3>Wielki Dzień Piwa Kraftowego</h3>
+          <p>30 browarów, 30 piw, jedna niezapomniana sobota w Norblinie. Wstęp wolny!</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card"
+        data-img="images/ken18/hero.webp"
+        data-badge="Pub Quiz"
+        data-status="upcoming" data-status-label="Nadchodzące"
+        data-date="6 marca 2026"
+        data-title="Pub Quiz – nowy sezon startuje w marcu!"
+        data-body="<p>Uwaga, quizomaniacy! Nowy sezon Pub Quizu rusza 6 marca na KEN 18. Co drugi czwartek od 19:00 zapraszamy na wieczór pełen pytań, śmiechu i rywalizacji.</p><p>Nowe kategorie, nowe nagrody i jeszcze więcej zabawy. Zbierzcie drużynę (2-6 osób) i zapiszcie się przez naszego Instagrama lub bezpośrednio w lokalu.</p><p>Dla zwycięzców: vouchery na piwo, gadżety Uwaga i wieczna chwała na tablicy mistrzów!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/ken18/hero.webp" alt="Pub Quiz KEN 18" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Pub Quiz</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-upcoming">Nadchodzące</span>
+            6 marca 2026
+          </span>
+          <h3>Pub Quiz – nowy sezon startuje w marcu!</h3>
+          <p>Co drugi czwartek na KEN 18 — nowe pytania, nowe nagrody i jeszcze więcej zabawy.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card"
+        data-img="images/piwa-kraft.webp"
+        data-badge="Nowość"
+        data-status="new" data-status-label="Nowe"
+        data-date="18 lutego 2026"
+        data-title="Uwaga Marcowe – sezonowe piwo już na kranach"
+        data-body="<p>Tradycja wraca na nasze krany! Uwaga Marcowe to ciemne piwo dolnej fermentacji — pełne, słodowe, z nutą karmelu i delikatną goryczką na finiszu.</p><p>Warzone według klasycznej receptury, idealne na przełom zimy i wiosny. Dostępne we wszystkich naszych lokalach — zarówno w Warszawie, jak i w Gdańsku.</p><p>Seria limitowana, więc nie zwlekajcie. Smacznego!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/piwa-kraft.webp" alt="Uwaga Marcowe" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Nowość</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-new">Nowe</span>
+            18 lutego 2026
+          </span>
+          <h3>Uwaga Marcowe – sezonowe piwo już na kranach</h3>
+          <p>Ciemne, słodowe, z nutą karmelu i delikatną goryczką. Dostępne we wszystkich lokalach.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card"
+        data-img="images/gdansk/hero.webp"
+        data-badge="Menu"
+        data-status="new" data-status-label="Nowe"
+        data-date="5 lutego 2026"
+        data-title="Nowe dania w Gdańsku – pierogi kraftowe i fish &amp; chips"
+        data-body="<p>Rozszerzyliśmy menu na Piwnej! Od teraz w naszym gdańskim lokalu znajdziecie pierogi kraftowe z trzema nadzieniami — klasyk z mięsem, wegetariańskie z grzybami oraz z pulled porkiem i BBQ.</p><p>Dołączył też fish &amp; chips w chrupiącej panierce piwnej z naszego własnego piwa Uwaga Pils. Do tego nowe sałatki i sezonowe zupy.</p><p>Menu rozwijamy razem z lokalnym szefem kuchni — wpadajcie i testujcie!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/gdansk/hero.webp" alt="Gdańsk nowe menu" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Menu</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-new">Nowe</span>
+            5 lutego 2026
+          </span>
+          <h3>Nowe dania w Gdańsku – pierogi kraftowe i fish &amp; chips</h3>
+          <p>Rozszerzyliśmy menu na Piwnej. Klasyczne smaki w kraftowym wydaniu.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card news-roll-card-past"
+        data-img="images/hero-bar.webp"
+        data-badge="Muzyka"
+        data-status="past" data-status-label="Archiwum"
+        data-date="10 stycznia 2026"
+        data-title="Piątki z muzyką na żywo – podsumowanie zimy"
+        data-body="<p>Przez całą zimę co piątek w Fabryce Norblina grali dla Was lokalni artyści. Rockowe brzmienia, jazz, blues i indie — każdy wieczór miał inny klimat.</p><p>Dziękujemy wszystkim zespołom i Wam za niesamowitą atmosferę! Seria powróci wiosną w nowym wydaniu — śledźcie nasze social media.</p>">
+        <div class="news-roll-card-img">
+          <img src="images/hero-bar.webp" alt="Koncert w Norblinie" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Muzyka</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-past">Archiwum</span>
+            10 stycznia 2026
+          </span>
+          <h3>Piątki z muzyką na żywo – podsumowanie zimy</h3>
+          <p>Rockowe brzmienia co piątek od 20:00 — tak wyglądała zima w Norblinie.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card news-roll-card-past"
+        data-img="images/fabryka/hero.webp"
+        data-badge="Lokal"
+        data-status="past" data-status-label="Archiwum"
+        data-date="15 grudnia 2025"
+        data-title="Ogródek zimowy w Fabryce Norblina otwarty"
+        data-body="<p>Nasz ogródek zimowy w Fabryce Norblina działał przez cały grudzień i styczeń. Koce, grzane piwo kraftowe, lampki i nastrojowa muzyka.</p><p>Dziękujemy za wszystkie wizyty mimo mrozu! Ogródek letni wróci w maju — a na razie zapraszamy do środka, gdzie jest równie przytulnie.</p>">
+        <div class="news-roll-card-img">
+          <img src="images/fabryka/hero.webp" alt="Ogródek Norblina" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Lokal</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-past">Archiwum</span>
+            15 grudnia 2025
+          </span>
+          <h3>Ogródek zimowy w Fabryce Norblina otwarty</h3>
+          <p>Koce, grzane piwo i nastrojowe oświetlenie. Nasz zimowy ogródek czekał na Was.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card news-roll-card-past"
+        data-img="images/ken18/hero.webp"
+        data-badge="Oferta"
+        data-status="past" data-status-label="Archiwum"
+        data-date="1 grudnia 2025"
+        data-title="Świąteczna oferta – zestawy prezentowe dla piwoszów"
+        data-body="<p>W grudniu przygotowaliśmy specjalne zestawy prezentowe: piwa Uwaga, autorskie szklanki i vouchery do naszych lokali — wszystko w eleganckim opakowaniu.</p><p>Oferta cieszyła się ogromnym zainteresowaniem. Dziękujemy! W tym roku planujemy jeszcze więcej wariantów. Śledźcie nas od listopada.</p>">
+        <div class="news-roll-card-img">
+          <img src="images/ken18/hero.webp" alt="Święta w Uwaga" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Oferta</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-past">Archiwum</span>
+            1 grudnia 2025
+          </span>
+          <h3>Świąteczna oferta – zestawy prezentowe dla piwoszów</h3>
+          <p>Piwa, szklanki i vouchery w eleganckim opakowaniu. Idealny prezent pod choinkę.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="news-roll-nav">
+      <div class="news-roll-arrows">
+        <button onclick="document.querySelector('.news-roll').scrollBy({left:-260,behavior:'smooth'})" aria-label="Przewiń w lewo">&#8249;</button>
+        <button onclick="document.querySelector('.news-roll').scrollBy({left:260,behavior:'smooth'})" aria-label="Przewiń w prawo">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRANSMISJE SPORTOWE ===== -->
+  <section class="schedule-section">
+    <div class="section-divider" style="margin-bottom: 40px;"></div>
+    <h2 class="section-title">Transmisje</h2>
+
+    <div class="schedule-wrap">
+      <div class="schedule-bg"></div>
+      <div class="schedule-inner">
+
+        <div class="schedule-nav">
+          <button onclick="changeWeek(-1)" aria-label="Poprzedni tydzień">&larr;</button>
+          <span class="schedule-week" id="scheduleWeekLabel">17–26 Lutego</span>
+          <button onclick="changeWeek(1)" aria-label="Następny tydzień">&rarr;</button>
+        </div>
+
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-item-date">
+              <span class="schedule-item-day">17</span>
+              <span class="schedule-item-month">Lut</span>
+            </div>
+            <div class="schedule-item-info">
+              <span class="schedule-item-label">Champions League</span>
+              <span class="schedule-item-time">21:00</span>
+            </div>
+            <div class="schedule-item-badge">
+              <img src="images/champions-league-logo.svg" alt="Champions League" width="40" height="40" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-item-date">
+              <span class="schedule-item-day">18</span>
+              <span class="schedule-item-month">Lut</span>
+            </div>
+            <div class="schedule-item-info">
+              <span class="schedule-item-label">Champions League</span>
+              <span class="schedule-item-time">21:00</span>
+            </div>
+            <div class="schedule-item-badge">
+              <img src="images/champions-league-logo.svg" alt="Champions League" width="40" height="40" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-item-date">
+              <span class="schedule-item-day">19</span>
+              <span class="schedule-item-month">Lut</span>
+            </div>
+            <div class="schedule-item-info">
+              <span class="schedule-item-label">Europa Conference League</span>
+              <span class="schedule-item-time">18:45 · 21:00</span>
+            </div>
+            <div class="schedule-item-badge">
+              <img src="images/europa-conference-league-logo.webp" alt="Europa Conference League" width="40" height="40" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-item-date">
+              <span class="schedule-item-day">24</span>
+              <span class="schedule-item-month">Lut</span>
+            </div>
+            <div class="schedule-item-info">
+              <span class="schedule-item-label">Champions League</span>
+              <span class="schedule-item-time">21:00</span>
+            </div>
+            <div class="schedule-item-badge">
+              <img src="images/champions-league-logo.svg" alt="Champions League" width="40" height="40" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-item-date">
+              <span class="schedule-item-day">25</span>
+              <span class="schedule-item-month">Lut</span>
+            </div>
+            <div class="schedule-item-info">
+              <span class="schedule-item-label">Champions League</span>
+              <span class="schedule-item-time">21:00</span>
+            </div>
+            <div class="schedule-item-badge">
+              <img src="images/champions-league-logo.svg" alt="Champions League" width="40" height="40" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-item-date">
+              <span class="schedule-item-day">26</span>
+              <span class="schedule-item-month">Lut</span>
+            </div>
+            <div class="schedule-item-info">
+              <span class="schedule-item-label">Europa Conference League</span>
+              <span class="schedule-item-time">18:45 · 21:00</span>
+            </div>
+            <div class="schedule-item-badge">
+              <img src="images/europa-conference-league-logo.webp" alt="Europa Conference League" width="40" height="40" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEWS POPUP OVERLAY ===== -->
+  <div class="news-overlay" id="newsOverlay">
+    <div class="news-overlay-backdrop" onclick="closeNewsPopup()"></div>
+    <div class="news-overlay-content">
+      <button class="news-overlay-close" onclick="closeNewsPopup()" aria-label="Zamknij">&times;</button>
+      <div class="news-overlay-img">
+        <img id="newsPopupImg" src="" alt="">
+        <span class="news-overlay-badge" id="newsPopupBadge"></span>
+      </div>
+      <div class="news-overlay-body">
+        <div class="news-overlay-meta">
+          <span class="news-status" id="newsPopupStatus"></span>
+          <span class="news-overlay-date" id="newsPopupDate"></span>
+        </div>
+        <h2 id="newsPopupTitle"></h2>
+        <div class="news-overlay-text" id="newsPopupText"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider" style="margin: 40px auto;"></div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <h4>Uwaga Piwo</h4>
+        <p>Szeroki wybór polskich piw kraftowych, w tym nasze autorskie piwa „Uwaga" dostępne tylko u nas. Transmisje sportowe, gry, dobra muzyka i jedzenie.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/uwaborek" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/uwagapiwo/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Lokalizacje</h4>
+        <ul>
+          <li><a href="fabryka-norblina.html">Fabryka Norblina</a></li>
+          <li><a href="ken-18.html">KEN 18</a></li>
+          <li><a href="piwna.html">Piwna Gdańsk</a></li>
+          <li><a href="uwaga-kawa.html">Uwaga Kawa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Warszawa</h4>
+        <div class="footer-location">
+          <strong>Fabryka Norblina</strong>
+          <span>Żelazna 51/53<br>Pn–Pt od 15:00 · Sb–Nd od 13:00</span>
+        </div>
+        <div class="footer-location">
+          <strong>KEN 18</strong>
+          <span>Al. KEN 18, Ursynów<br>Codziennie od 16:00</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Gdańsk</h4>
+        <div class="footer-location">
+          <strong>Uwaga Piwo</strong>
+          <span>Piwna 24<br>Pn–Pt od 15:00 · Sb–Nd od 13:00</span>
+        </div>
+        <div class="footer-location">
+          <strong>Uwaga Kawa</strong>
+          <span>Piwna 24<br>Codziennie od 10:00</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024–2026 UWAGA PIWO. Wszelkie prawa zastrzeżone. · <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+    </div>
+  </footer>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>Używamy plików cookie, aby zapewnić najlepszą jakość korzystania z naszej strony. <a href="polityka-prywatnosci.html">Polityka prywatności</a></p>
+    <div class="cookie-banner-btns">
+      <button class="cookie-btn-accept" onclick="acceptCookies()">Akceptuję</button>
+      <button class="cookie-btn-reject" onclick="rejectCookies()">Odrzuć</button>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // === Hero Video (lazy-loaded) ===
+    (function() {
+      const video = document.getElementById('heroVideo');
+      const source = video.querySelector('source');
+      if (source.dataset.src) {
+        source.src = source.dataset.src;
+        video.load();
+        video.play();
+      }
+    })();
+
+    function playHeroVideo(container) {
+      const video = container.querySelector('video');
+      if (!container.classList.contains('playing')) {
+        container.classList.add('playing');
+        video.play();
+      } else {
+        container.classList.remove('playing');
+        video.pause();
+      }
+    }
+
+    // === Schedule week nav (prototype) ===
+    const scheduleWeeks = [
+      '17–26 Lutego',
+      '27 Lutego – 5 Marca',
+      '6–12 Marca',
+      '13–19 Marca'
+    ];
+    let currentWeek = 0;
+
+    function changeWeek(delta) {
+      currentWeek = Math.max(0, Math.min(scheduleWeeks.length - 1, currentWeek + delta));
+      document.getElementById('scheduleWeekLabel').textContent = scheduleWeeks[currentWeek];
+    }
+
+    // === News Popup ===
+    const statusClasses = {
+      upcoming: 'news-status-upcoming',
+      new: 'news-status-new',
+      past: 'news-status-past'
+    };
+
+    document.querySelectorAll('.news-roll-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const overlay = document.getElementById('newsOverlay');
+        document.getElementById('newsPopupImg').src = card.dataset.img;
+        document.getElementById('newsPopupImg').alt = card.dataset.title;
+        document.getElementById('newsPopupBadge').textContent = card.dataset.badge;
+        document.getElementById('newsPopupDate').textContent = card.dataset.date;
+        document.getElementById('newsPopupTitle').textContent = card.dataset.title;
+        document.getElementById('newsPopupText').innerHTML = card.dataset.body;
+
+        const statusEl = document.getElementById('newsPopupStatus');
+        statusEl.textContent = card.dataset.statusLabel;
+        statusEl.className = 'news-status ' + (statusClasses[card.dataset.status] || '');
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeNewsPopup() {
+      document.getElementById('newsOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNewsPopup();
+    });
+
+    // === Schedule section reveal ===
+    (function(){
+      var s = document.querySelector('.schedule-section');
+      if (s && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function(entries, obs) {
+          if (entries[0].isIntersecting) { s.classList.add('visible'); obs.disconnect(); }
+        }, { threshold: 0.15 }).observe(s);
+      } else if (s) { s.classList.add('visible'); }
+    })();
+
+    // === Mobile nav toggle ===
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('open');
+    });
+
+    // === Cookie banner ===
+    (function(){
+      if (!localStorage.getItem('cookieConsent')) {
+        setTimeout(function(){ document.getElementById('cookieBanner').classList.add('visible'); }, 800);
+      }
+    })();
+    function acceptCookies(){ localStorage.setItem('cookieConsent','accepted'); document.getElementById('cookieBanner').classList.remove('visible'); }
+    function rejectCookies(){ localStorage.setItem('cookieConsent','rejected'); document.getElementById('cookieBanner').classList.remove('visible'); }
+  </script>
+
+</body>
+</html>
