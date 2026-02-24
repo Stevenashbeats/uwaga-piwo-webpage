@@ -47,7 +47,7 @@
     /* HEADER */
     .site-header {
       background-color: #1a1a1a;
-      padding: 20px 40px;
+      padding: 10px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -55,7 +55,7 @@
       top: 0;
       z-index: 100;
     }
-    .logo img { height: 150px; width: 150px; object-fit: contain; }
+    .logo img { height: 80px; width: 80px; object-fit: contain; }
     .main-nav { display: flex; gap: 40px; }
     .main-nav a {
       font-family: 'Evogria', sans-serif;
@@ -213,34 +213,254 @@
       transform: translateY(-2px);
     }
 
-    /* PHOTO GALLERY */
-    .gallery-section {
+    /* ROOMS SECTION */
+    .rooms-section {
+      padding: 80px 40px;
       background: #1a1a1a;
-      padding: 60px 40px;
     }
-    .gallery-section h2 {
+    .rooms-section > h2 {
       font-family: 'Evogria', sans-serif;
-      font-size: clamp(20px, 2.5vw, 32px);
+      font-size: clamp(24px, 3vw, 40px);
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 56px;
     }
-    .gallery-grid {
+    .rooms-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
       max-width: 1100px;
       margin: 0 auto;
     }
-    .gallery-grid img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 6px;
-      transition: transform 0.4s;
+    .room-card {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #333;
     }
-    .gallery-grid img:hover { transform: scale(1.03); }
+    .room-card-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .room-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .room-card:hover .room-card-img img {
+      transform: scale(1.05);
+    }
+    .room-card-body {
+      padding: 32px 36px 36px;
+    }
+    .room-card h3 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(16px, 1.8vw, 22px);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .room-capacity {
+      font-size: 14px;
+      color: #888;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+    .room-card p {
+      font-size: 16px;
+      color: #bbb;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .room-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .room-features li {
+      font-size: 14px;
+      color: #999;
+      padding: 6px 0;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .room-features li::before {
+      content: '✓';
+      color: #6abf6e;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .room-pricing {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+    }
+    .room-pricing h4 {
+      font-family: 'Evogria', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #bbb;
+      padding: 4px 0;
+    }
+    .price-row span:last-child {
+      color: #fff;
+      font-weight: 700;
+    }
+    .room-contact {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+    .room-contact a {
+      color: #ddd;
+      transition: color 0.3s;
+    }
+    .room-contact a:hover { color: #fff; }
+
+    /* RESERVATIONS INFO */
+    .reservations-section {
+      padding: 80px 40px;
+      background: #111;
+    }
+    .reservations-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 48px 56px;
+    }
+    .reservations-inner h2 {
+      font-family: 'Evogria', sans-serif;
+      font-size: clamp(18px, 2vw, 24px);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+    }
+    .res-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .res-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .res-icon svg {
+      width: 18px;
+      height: 18px;
+      color: #999;
+    }
+    .res-text {
+      flex: 1;
+    }
+    .res-text p {
+      font-size: 16px;
+      color: #bbb;
+      line-height: 1.7;
+    }
+    .res-text a {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .res-text a:hover { opacity: 0.7; }
+    .res-text .res-label {
+      font-family: 'Evogria', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666;
+      margin-bottom: 6px;
+    }
+    .res-note {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #2a2a2a;
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .rooms-grid { grid-template-columns: 1fr; gap: 24px; }
+      .rooms-section { padding: 50px 20px; }
+      .reservations-section { padding: 50px 20px; }
+      .reservations-inner { padding: 32px 24px; }
+    }
+
+    /* NEWS */
+    .news-section{padding:80px 0 0;background:#1a1a1a}
+    .news-section .section-title{font-family:'Evogria',sans-serif;font-size:clamp(24px,3vw,40px);text-transform:uppercase;text-align:center;letter-spacing:2px;margin-bottom:16px}
+    .news-subtitle{text-align:center;color:#888;font-size:17px;margin-bottom:24px;letter-spacing:0.5px}
+    .news-status{display:inline-block;padding:2px 8px;border-radius:3px;font-family:'Evogria',sans-serif;font-size:9px;letter-spacing:1.2px;text-transform:uppercase}
+    .news-status-new{background:rgba(76,175,80,0.15);color:#6abf6e}
+    .news-status-upcoming{background:rgba(100,181,246,0.15);color:#64b5f6}
+    .news-status-past{background:rgba(255,255,255,0.06);color:#888}
+    .news-card-badge{position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:5px 14px;border-radius:20px;font-family:'Evogria',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#fff}
+    .news-roll-nav{display:flex;align-items:center;justify-content:center;gap:12px;padding:0 40px;margin-top:-20px;padding-bottom:60px}
+    .news-roll-arrows{display:flex;gap:4px}
+    .news-roll-arrows button{width:32px;height:32px;border-radius:50%;border:none;background:rgba(255,255,255,0.06);color:#666;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color 0.3s,background 0.3s}
+    .news-roll-arrows button:hover{color:#fff;background:rgba(255,255,255,0.12)}
+    .news-roll{display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth;padding:0 40px 30px;-ms-overflow-style:none;scrollbar-width:none}
+    .news-roll::-webkit-scrollbar{display:none}
+    .news-roll-card{flex:0 0 240px;background:#222;border-radius:12px;overflow:hidden;transition:transform 0.4s,box-shadow 0.4s;display:flex;flex-direction:column;cursor:pointer}
+    .news-roll-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+    .news-roll-card-img{height:140px;overflow:hidden;position:relative}
+    .news-roll-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+    .news-roll-card:hover .news-roll-card-img img{transform:scale(1.05)}
+    .news-roll-card-body{padding:16px;display:flex;flex-direction:column;flex:1}
+    .news-roll-card-date{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700}
+    .news-roll-card h3{font-family:'Evogria',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#fff;margin-bottom:8px;line-height:1.35}
+    .news-roll-card p{font-size:13px;color:#999;line-height:1.5;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .news-roll-card-link{display:inline-flex;align-items:center;gap:6px;font-family:'Evogria',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#888;transition:color 0.3s;margin-top:auto}
+    .news-roll-card-link::after{content:'\2192';font-size:14px;transition:transform 0.3s}
+    .news-roll-card:hover .news-roll-card-link{color:#fff}
+    .news-roll-card:hover .news-roll-card-link::after{transform:translateX(4px)}
+    .news-roll-card-past{opacity:0.55;transition:opacity 0.4s,transform 0.4s,box-shadow 0.4s}
+    .news-roll-card-past:hover{opacity:1}
+    .news-overlay{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.4s,visibility 0.4s}
+    .news-overlay.active{opacity:1;visibility:visible}
+    .news-overlay-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .news-overlay-content{position:relative;z-index:1;width:92%;max-width:800px;max-height:90vh;background:#1a1a1a;border-radius:20px;overflow:hidden;transform:translateY(30px) scale(0.96);transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column}
+    .news-overlay.active .news-overlay-content{transform:translateY(0) scale(1)}
+    .news-overlay-close{position:absolute;top:16px;right:16px;z-index:2;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.3s,transform 0.3s}
+    .news-overlay-close:hover{background:rgba(255,255,255,0.15);transform:rotate(90deg)}
+    .news-overlay-img{width:100%;height:300px;overflow:hidden;position:relative;flex-shrink:0}
+    .news-overlay-img img{width:100%;height:100%;object-fit:cover}
+    .news-overlay-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(transparent,#1a1a1a)}
+    .news-overlay-badge{position:absolute;top:20px;left:20px;background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:6px 16px;border-radius:20px;font-family:'Evogria',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#fff}
+    .news-overlay-body{padding:32px 40px 40px;overflow-y:auto}
+    .news-overlay-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+    .news-overlay-body h2{font-family:'Evogria',sans-serif;font-size:clamp(20px,2.5vw,28px);text-transform:uppercase;letter-spacing:1.5px;color:#fff;line-height:1.35;margin-bottom:24px}
+    .news-overlay-body .news-overlay-text{font-size:16px;color:#aaa;line-height:1.85}
+    .news-overlay-body .news-overlay-text p{margin-bottom:16px}
+    .news-overlay-date{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#999}
 
     /* MAP */
     .map-section {
@@ -342,7 +562,7 @@
       letter-spacing: 1px;
       text-transform: uppercase;
       color: #888;
-      padding: 20px 40px;
+      padding: 10px 40px;
       transition: color 0.3s;
     }
     .back-link:hover, .back-link:focus-visible { color: #fff; }
@@ -423,7 +643,7 @@
     /* RESPONSIVE */
     @media (max-width: 1024px) {
       .site-header { padding: 15px 20px; }
-      .logo img { height: 100px; width: 100px; }
+      .logo img { height: 60px; width: 60px; }
       .nav-toggle { display: block; }
       .main-nav {
         display: none; position: absolute; top: 100%; left: 0; right: 0;
@@ -435,8 +655,15 @@
       .location-page { grid-template-columns: 1fr; gap: 50px; padding: 50px 20px; }
       .location-about { order: -1; }
       .location-details { order: 1; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-section, .cta-section { padding: 50px 20px; }
+      .news-section { padding: 60px 0 0; }
+      .news-roll-nav { padding: 0 20px; padding-bottom: 50px; }
+      .news-roll { padding: 0 20px 20px; gap: 14px; }
+      .news-roll-card { flex: 0 0 200px; }
+      .news-roll-card-img { height: 120px; }
+      .news-overlay-content { width: 100%; max-height: 100vh; border-radius: 0; }
+      .news-overlay-img { height: 220px; }
+      .news-overlay-body { padding: 24px 20px 32px; }
+      .cta-section { padding: 50px 20px; }
       .menu-section { padding: 50px 20px; }
       .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -529,7 +756,6 @@
         <span class="tag">Ogródek</span>
       </div>
 
-      <a href="https://www.mojstolik.pl/restauracja/uwagapiwo-norblin" target="_blank" rel="noopener" class="btn-reserve">Rezerwuj stolik</a>
     </div>
 
     <div class="location-about">
@@ -604,15 +830,262 @@
     </script>
   </section>
 
-  <!-- GALLERY -->
-  <section class="gallery-section">
-    <h2>Galeria</h2>
-    <div class="gallery-grid">
-      <img src="images/fabryka/hero.webp" alt="Fabryka Norblina – wnętrze" width="600" height="900" loading="lazy">
-      <img src="images/fabryka/menu-piwa-puszki.webp" alt="Fabryka Norblina – bar" width="480" height="290" loading="lazy">
-      <img src="images/fabryka/menu-piwa-kran.webp" alt="Fabryka Norblina – piwa" width="480" height="321" loading="lazy">
+  <!-- REZERWACJE -->
+  <section class="reservations-section">
+    <div class="reservations-inner">
+      <h2>Rezerwacje</h2>
+
+      <div class="res-row">
+        <div class="res-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="res-text">
+          <div class="res-label">Do godz. 16:00</div>
+          <p>Rezerwacje przyjmujemy wyłącznie telefonicznie pod nr <a href="tel:600201940">600 201 940</a></p>
+        </div>
+      </div>
+
+      <div class="res-row">
+        <div class="res-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="res-text">
+          <div class="res-label">Po godz. 16:00</div>
+          <p>Rezerwacji można dokonać online przez przycisk <a href="https://www.mojstolik.pl/restauracja/uwagapiwo-norblin" target="_blank" rel="noopener">Rezerwuj</a></p>
+        </div>
+      </div>
+
+      <p class="res-note">Stolików w ogródku nie rezerwujemy.</p>
+
+      <a href="https://www.mojstolik.pl/restauracja/uwagapiwo-norblin" target="_blank" rel="noopener" class="btn-reserve" style="margin-top:28px;display:inline-block;">Rezerwuj stolik</a>
     </div>
   </section>
+
+  <!-- SALE DO WYNAJĘCIA -->
+  <section class="rooms-section">
+    <h2>Sale do wynajęcia</h2>
+    <div class="rooms-grid">
+
+      <div class="room-card">
+        <div class="room-card-img">
+          <img src="images/fabryka/sala-konferencyjna.webp" alt="Sala konferencyjna – Fabryka Norblina" width="1200" height="800" loading="lazy" decoding="async">
+        </div>
+        <div class="room-card-body">
+          <h3>Sala konferencyjna</h3>
+          <span class="room-capacity">Do 100 osób</span>
+          <p>Przestronna sala w muzealnym klimacie z elastycznym układem przestrzeni. Idealna na konferencje, prezentacje, quizy i eventy prywatne.</p>
+          <ul class="room-features">
+            <li>Duży projektor z mikrofonem</li>
+            <li>Wygłuszenie akustyczne (zasłony)</li>
+            <li>Elastyczna aranżacja przestrzeni</li>
+            <li>Dostępność: codziennie, godziny poranne i wieczorne</li>
+          </ul>
+          <div class="room-pricing">
+            <h4>Cennik</h4>
+            <p style="font-size:14px;color:#999;margin-bottom:0;">Cena zależna od dnia tygodnia — skontaktuj się po szczegóły.</p>
+          </div>
+          <div class="room-contact">
+            Tel: <a href="tel:694007730">694 007 730</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-card-img">
+          <img src="images/fabryka/salka-vip.webp" alt="Salka VIP – Fabryka Norblina" width="1536" height="2040" loading="lazy" decoding="async">
+        </div>
+        <div class="room-card-body">
+          <h3>Salka VIP</h3>
+          <span class="room-capacity">Do 30 osób</span>
+          <p>Kameralna przestrzeń idealna na spotkania firmowe, urodziny, prezentacje i imprezy okolicznościowe.</p>
+          <ul class="room-features">
+            <li>Telewizor z dedykowanym nagłośnieniem</li>
+            <li>Idealna na prezentacje i spotkania</li>
+            <li>Prywatna, oddzielona przestrzeń</li>
+          </ul>
+          <div class="room-pricing">
+            <h4>Cennik</h4>
+            <div class="price-row"><span>Niedziela / Poniedziałek</span><span>300 zł</span></div>
+            <div class="price-row"><span>Wtorek / Sobota</span><span>500 zł</span></div>
+            <div class="price-row"><span>Środa – Piątek</span><span>800 zł</span></div>
+          </div>
+          <div class="room-contact">
+            Tel: <a href="tel:694007730">694 007 730</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEWSY -->
+  <section class="news-section">
+    <h2 class="section-title">Newsy</h2>
+    <p class="news-subtitle">Co nowego w Fabryce Norblina</p>
+
+    <div class="news-roll" id="fnNewsRoll">
+
+      <article class="news-roll-card"
+        data-img="images/fabryka/hero.webp"
+        data-badge="Wydarzenie"
+        data-status="upcoming" data-status-label="Nadchodzące"
+        data-date="8 marca 2026"
+        data-title="Wielki Dzień Piwa Kraftowego – degustacja 30 piw"
+        data-body="<p>Zapraszamy na wyjątkowe wydarzenie w Fabryce Norblina! 30 browarów z całej Polski zaprezentuje swoje najlepsze piwa w jednym miejscu.</p><p>Wstęp wolny, piwa w cenach specjalnych. Na miejscu food trucki, muzyka na żywo i konkursy z nagrodami. Start o 14:00!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/fabryka/hero.webp" alt="Wielki Dzień Piwa Kraftowego" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Wydarzenie</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-upcoming">Nadchodzące</span>
+            8 marca 2026
+          </span>
+          <h3>Wielki Dzień Piwa Kraftowego</h3>
+          <p>30 browarów, 30 piw, jedna niezapomniana sobota w Norblinie. Wstęp wolny!</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card"
+        data-img="images/fabryka/sala-konferencyjna.webp"
+        data-badge="Sala"
+        data-status="upcoming" data-status-label="Nadchodzące"
+        data-date="15 marca 2026"
+        data-title="Pub Quiz w sali konferencyjnej – zapisy otwarte"
+        data-body="<p>Pierwszy Pub Quiz w naszej sali konferencyjnej! Miejsce na 10 drużyn, projektor, nagłośnienie i pełen profesjonalizm.</p><p>Zapisy przez Instagram lub w lokalu. Drużyny 2-6 osób. Nagrody: vouchery, gadżety i wieczna chwała!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/fabryka/sala-konferencyjna.webp" alt="Pub Quiz" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Sala</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-upcoming">Nadchodzące</span>
+            15 marca 2026
+          </span>
+          <h3>Pub Quiz w sali konferencyjnej</h3>
+          <p>Pierwszy quiz w sali konferencyjnej! Projektor, nagłośnienie i 10 drużyn.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card"
+        data-img="images/piwa-kraft.webp"
+        data-badge="Nowość"
+        data-status="new" data-status-label="Nowe"
+        data-date="18 lutego 2026"
+        data-title="Uwaga Marcowe – sezonowe piwo już na kranach"
+        data-body="<p>Tradycja wraca na nasze krany! Uwaga Marcowe to ciemne piwo dolnej fermentacji — pełne, słodowe, z nutą karmelu i delikatną goryczką na finiszu.</p><p>Seria limitowana, więc nie zwlekajcie. Smacznego!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/piwa-kraft.webp" alt="Uwaga Marcowe" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Nowość</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-new">Nowe</span>
+            18 lutego 2026
+          </span>
+          <h3>Uwaga Marcowe – sezonowe piwo</h3>
+          <p>Ciemne, słodowe, z nutą karmelu i delikatną goryczką. Limitowana seria!</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card"
+        data-img="images/fabryka/salka-vip.webp"
+        data-badge="VIP"
+        data-status="new" data-status-label="Nowe"
+        data-date="10 lutego 2026"
+        data-title="Salka VIP – nowy wystrój i sprzęt audio"
+        data-body="<p>Nasza salka VIP przeszła metamorfozę! Nowe oświetlenie LED, ulepszony system nagłośnienia i 55-calowy TV 4K.</p><p>Idealna na urodziny, wieczory firmowe i spotkania w kameralnym gronie do 30 osób. Rezerwacje od 300 zł.</p>">
+        <div class="news-roll-card-img">
+          <img src="images/fabryka/salka-vip.webp" alt="Salka VIP" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">VIP</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-new">Nowe</span>
+            10 lutego 2026
+          </span>
+          <h3>Salka VIP – nowy wystrój</h3>
+          <p>Nowe oświetlenie, lepszy dźwięk i TV 4K. Idealna na imprezy do 30 osób.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card news-roll-card-past"
+        data-img="images/hero-bar.webp"
+        data-badge="Muzyka"
+        data-status="past" data-status-label="Archiwum"
+        data-date="10 stycznia 2026"
+        data-title="Piątki z muzyką na żywo – podsumowanie zimy"
+        data-body="<p>Przez całą zimę co piątek grali dla Was lokalni artyści. Rock, jazz, blues i indie — każdy wieczór miał inny klimat.</p><p>Seria powróci wiosną — śledźcie nasze social media!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/hero-bar.webp" alt="Koncert w Norblinie" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Muzyka</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-past">Archiwum</span>
+            10 stycznia 2026
+          </span>
+          <h3>Piątki z muzyką na żywo</h3>
+          <p>Rockowe brzmienia co piątek od 20:00 — tak wyglądała zima w Norblinie.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+      <article class="news-roll-card news-roll-card-past"
+        data-img="images/fabryka/hero.webp"
+        data-badge="Lokal"
+        data-status="past" data-status-label="Archiwum"
+        data-date="15 grudnia 2025"
+        data-title="Ogródek zimowy otwarty"
+        data-body="<p>Nasz ogródek zimowy działał przez cały grudzień i styczeń. Koce, grzane piwo, lampki i nastrojowa muzyka.</p><p>Ogródek letni wróci w maju — a na razie zapraszamy do środka!</p>">
+        <div class="news-roll-card-img">
+          <img src="images/fabryka/hero.webp" alt="Ogródek Norblina" width="240" height="140" loading="lazy" decoding="async">
+          <span class="news-card-badge">Lokal</span>
+        </div>
+        <div class="news-roll-card-body">
+          <span class="news-roll-card-date">
+            <span class="news-status news-status-past">Archiwum</span>
+            15 grudnia 2025
+          </span>
+          <h3>Ogródek zimowy otwarty</h3>
+          <p>Koce, grzane piwo i nastrojowe oświetlenie. Zimowy ogródek czekał na Was.</p>
+          <span class="news-roll-card-link">Czytaj więcej</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="news-roll-nav">
+      <div class="news-roll-arrows">
+        <button onclick="document.getElementById('fnNewsRoll').scrollBy({left:-260,behavior:'smooth'})" aria-label="Przewiń w lewo">&#8249;</button>
+        <button onclick="document.getElementById('fnNewsRoll').scrollBy({left:260,behavior:'smooth'})" aria-label="Przewiń w prawo">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS POPUP OVERLAY -->
+  <div class="news-overlay" id="fnNewsOverlay">
+    <div class="news-overlay-backdrop" onclick="closeFnNewsPopup()"></div>
+    <div class="news-overlay-content">
+      <button class="news-overlay-close" onclick="closeFnNewsPopup()" aria-label="Zamknij">&times;</button>
+      <div class="news-overlay-img">
+        <img id="fnNewsPopupImg" src="" alt="">
+        <span class="news-overlay-badge" id="fnNewsPopupBadge"></span>
+      </div>
+      <div class="news-overlay-body">
+        <div class="news-overlay-meta">
+          <span class="news-status" id="fnNewsPopupStatus"></span>
+          <span class="news-overlay-date" id="fnNewsPopupDate"></span>
+        </div>
+        <h2 id="fnNewsPopupTitle"></h2>
+        <div class="news-overlay-text" id="fnNewsPopupText"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- MAP -->
   <section class="map-section">
@@ -694,6 +1167,34 @@
     (function(){if(!localStorage.getItem('cookieConsent')){setTimeout(function(){document.getElementById('cookieBanner').classList.add('visible');},800);}})();
     function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').classList.remove('visible');}
     function rejectCookies(){localStorage.setItem('cookieConsent','rejected');document.getElementById('cookieBanner').classList.remove('visible');}
+
+    // === News Popup ===
+    var fnStatusClasses = { upcoming:'news-status-upcoming', 'new':'news-status-new', past:'news-status-past' };
+    document.querySelectorAll('.news-roll-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        document.getElementById('fnNewsPopupImg').src = card.dataset.img;
+        document.getElementById('fnNewsPopupImg').alt = card.dataset.title;
+        document.getElementById('fnNewsPopupBadge').textContent = card.dataset.badge;
+        document.getElementById('fnNewsPopupDate').textContent = card.dataset.date;
+        document.getElementById('fnNewsPopupTitle').textContent = card.dataset.title;
+        document.getElementById('fnNewsPopupText').innerHTML = card.dataset.body;
+        var statusEl = document.getElementById('fnNewsPopupStatus');
+        statusEl.textContent = card.dataset.statusLabel;
+        statusEl.className = 'news-status ' + (fnStatusClasses[card.dataset.status] || '');
+        document.getElementById('fnNewsOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeFnNewsPopup() {
+      document.getElementById('fnNewsOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeFnNewsPopup(); });
+
+    // === Mobile nav toggle ===
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('open');
+    });
   </script>
 
 </body>
